@@ -9,7 +9,7 @@ class Reader:
         self.idata = []
     #    self.data = []
 
-    def read(self):
+    def readIV(self):
         """This method is tuned to IV data"""
         with open(self.filepath + self.filename) as file:
             properties = file.readline()
@@ -30,12 +30,20 @@ class Reader:
         idea if the file is the correct one
         """
         return f"The first and the last Current values measure are: {self.idata[1][0]} and {self.idata[1][-1]}"
+    
+    def __add__(self, other):
+        """returns combined data """
+        combined = [self.idata[0] + other.idata[0], self.idata[1] + other.idata[1]]
+        return combined
 
 
 if __name__ == "__main__":
     filename = "IVSample.txt"
     filepath = "C:\\Users\\danie\\Desktop\\USB SERGEY\\Daniil\\22.02.23  Devices after aluminium contacts\\500C1\\"
     Test = Reader(filename,filepath)
-    Test.read()
+    Test.readIV()
     print(Test)
+    a = ['a0','b0']
+    b = ['a','b']
+    print(a+b,type(a+b))
 
