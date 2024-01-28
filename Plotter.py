@@ -17,5 +17,6 @@ class Plotter:
         plt.title(f"{self.title}")
         plt.xlabel(f"{self.x_name}]")
         plt.ylabel(f"{self.y_name}")
+        plt.show()
 
 

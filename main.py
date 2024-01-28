@@ -1,8 +1,17 @@
 from FileReader import *
+from Plotter import *
+from DataAnalyzer import *
 
 if __name__ == "__main__":
-    filename = "IVSample.txt"
-    filepath = "C:\\Users\\danie\\Desktop\\USB SERGEY\\Daniil\\22.02.23  Devices after aluminium contacts\\500C1\\"
-    Test = Reader(filename, filepath)
-    Test.readIV()
-    print(Test)
+    filename = "diode_6_forward_500um.txt"
+    filepath = "C:\\Users\\danie\\Desktop\\USB SERGEY\\Daniil\\20230213_device_from_Victor\\diode_6_0.5mm\\"
+    test1 = Reader(filename, filepath)
+    V,I = test1.readIV()
+    IV_analyze = IVDataAnalyzer(V,I)
+    I_log = IV_analyze.log_transform()
+    test_plot = Plotter(V,I,"Volt","Ampere","Testplot","current as a function of volt")
+    test_plot1 = Plotter(V, I_log, "Volt", "Log(Ampere)", "Testplot", "log current as a function of log")
+    test_plot.plot_data()
+    test_plot1.plot_data()
+
+    #print(firstplot)

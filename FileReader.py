@@ -18,7 +18,7 @@ class Reader:
             v = []
             i = []
             for line in lines:
-                v.append(float(line.split()[0]))
+                v.append(abs(float(line.split()[0])))
                 i.append(float(line.split()[1]))
         self.idata.append(v)
         self.idata.append(i)
