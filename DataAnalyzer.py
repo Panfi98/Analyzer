@@ -18,6 +18,7 @@ class IVDataAnalyzer:
         """ Calculates deplition region"""
         D = [(eps*eps_si*Areal)/(i) for i in self.c]
         return D
+    
 
 
 
